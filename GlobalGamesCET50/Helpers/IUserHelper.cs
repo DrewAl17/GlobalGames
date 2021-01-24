@@ -1,4 +1,5 @@
 ﻿using GlobalGamesCET50.Dadoss.Entidades;
+using GlobalGamesCET50.Models;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,10 @@ namespace GlobalGamesCET50.Helpers
         Task<User> GetUserByEmailAsync(string email);
 
         Task<IdentityResult> AddUserAsync(User user, string password);
+
+        Task<SignInResult> LoginInAsync(LoginViewModel model);
+
+
+        Task LogoutAync();
     }
 }

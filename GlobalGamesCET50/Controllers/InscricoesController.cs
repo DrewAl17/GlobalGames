@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using GlobalGamesCET50.Dadoss;
 using GlobalGamesCET50.Dadoss.Entidades;
 using GlobalGamesCET50.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GlobalGamesCET50.Controllers
 {
+    [Authorize]
     public class InscricoesController : Controller
     {
         private readonly DataContext _context;

@@ -24,18 +24,18 @@ namespace GlobalGamesCET50.Dadoss
         public async Task SeedAsync()
         {
             await this.context.Database.EnsureCreatedAsync();
-            var user = await this.userHelper.GetUserByEmailAsync("andre.lajas@hotmail.com");
+            var user = await this.userHelper.GetUserByEmailAsync("zeeber85hd@gmail.com");
             if (user == null)
             {
                 user = new User
                 {
-                    FirstName = "André",
+                    FirstName = "Andre",
                     LastName = "Lajas",
-                    Email = "andre.lajas@hotmail.com",
-                    UserName = "DrewAl17",
+                    Email = "zeeber85hd@gmail.com",
+                    UserName = "zeeber85hd@gmail.com",
                 };
 
-                var result = await this.userHelper.AddUserAsync(user, "123321");
+                var result = await this.userHelper.AddUserAsync(user,"123456");
                 if (result != IdentityResult.Success)
                 {
                     throw new InvalidOperationException("Could not create the user in seeder");
@@ -43,7 +43,7 @@ namespace GlobalGamesCET50.Dadoss
             }
             if (!this.context.Inscricoes.Any())
             {
-                this.AddInscricoes("André Lajas",user);
+                this.AddInscricoes("Alberto",user);
                 this.AddInscricoes("Rogerio",user);
                 await this.context.SaveChangesAsync();
             }
