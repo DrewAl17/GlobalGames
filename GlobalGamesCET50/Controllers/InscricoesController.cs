@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GlobalGamesCET50.Dadoss;
 using GlobalGamesCET50.Dadoss.Entidades;
+using GlobalGamesCET50.Helpers;
 
 namespace GlobalGamesCET50.Controllers
 {
     public class InscricoesController : Controller
     {
         private readonly DataContext _context;
+        private readonly IInscricoesRepository inscricoesRepository;
+        private readonly IUserHelper userHelper;
 
-        public InscricoesController(DataContext context)
+        public InscricoesController(DataContext context, IInscricoesRepository inscricoesRepository, IUserHelper userHelper)
         {
             _context = context;
+            this.inscricoesRepository = inscricoesRepository;
+            this.userHelper = userHelper;
         }
 
         // GET: Inscricoes
@@ -24,7 +29,6 @@ namespace GlobalGamesCET50.Controllers
         {
             return View(await _context.Inscricoes.ToListAsync());
         }
-
 
         // GET: Inscricoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
