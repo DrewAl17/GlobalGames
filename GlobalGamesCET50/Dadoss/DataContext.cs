@@ -11,6 +11,7 @@ namespace GlobalGamesCET50.Dadoss
     {
         public DbSet<Servicos> Servicos { get; set; }
 
+        public DbSet<Inscricoes> Inscricoes { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
@@ -18,3 +19,4 @@ namespace GlobalGamesCET50.Dadoss
         }
     }
 }
+

@@ -5,11 +5,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GlobalGamesCET50.Models;
+using GlobalGamesCET50.Dadoss;
 
 namespace GlobalGamesCET50.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly DataContext _context;
+
+        public HomeController(DataContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -25,7 +33,11 @@ namespace GlobalGamesCET50.Controllers
             return View();
         }
 
-        
+        public IActionResult Inscricoes()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
